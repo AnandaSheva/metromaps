@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MapController;
-use App\Http\Controllers\SphereController;
 
-Route::get('/', [MapController::class, 'index'])->name('map.index');
-Route::post('/cctv/view/{id}', [MapController::class, 'increment'])->name('cctv.increment');
-Route::get('/sphere/view/{slug}', [SphereController::class, 'view']);
-Route::get('/sphere/plus/{id}', [SphereController::class, 'plus']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Tidak perlu route /sphere/view/{slug} jika langsung pakai link dari DB
+use App\Http\Controllers\CCTVController;
+
+Route::get('/', [CCTVController::class, 'index']);
+Route::post('/cctv/view/{id}', [CCTVController::class, 'increment']);
+

@@ -9,7 +9,7 @@ class CCTVController extends Controller
 {
     public function index()
     {
-         $cctvs = DB::table('tb_cctv')->get();
+        $cctvs = DB::table('tb_cctv')->get();
         return view('map', compact('cctvs'));
     }
 
